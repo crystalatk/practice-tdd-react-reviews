@@ -1,22 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import NewReviewForm from "./components/NewReviewForm";
+import ReviewList from "./components/ReviewList";
 
 function App() {
+  const [reviews, setReviews] = useState([]);
+  const handleSend = (newReview) => {
+    setReviews([...reviews, newReview]);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Add a review for my husband's jokes</h1>
+        <NewReviewForm onSend={handleSend} />
+        <ReviewList reviews={reviews} />
       </header>
     </div>
   );
