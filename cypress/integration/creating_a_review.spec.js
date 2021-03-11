@@ -4,6 +4,8 @@ describe("Creating a review", () => {
 
     cy.get('[data-testid="reviewText"]').type("New review");
 
+    cy.pause();
+
     cy.get('[data-testid="submitButton"]').click();
 
     cy.get('[data-testid="reviewText"]').should("have.value", "");
